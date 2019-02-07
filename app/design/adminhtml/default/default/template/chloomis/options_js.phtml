@@ -1,0 +1,15 @@
+
+<script type="text/javascript">
+//<![CDATA[
+    window.loomisurl = '<?php echo $this->getUrl('*/loomisupdate/index') ?>';
+
+    observeOptions();
+
+    $H(loomis_ops).each(function(pair) {
+        if (pair.value === true) {
+            var rel = 's_method_' + loomis_ops.selectedrate;
+            $(rel + '_' + pair.key).checked = true;
+        }
+    });
+//]]>
+</script>

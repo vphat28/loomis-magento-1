@@ -1,0 +1,24 @@
+
+<script type="text/javascript">
+//<![CDATA[
+    window.loomisurl = '<?php echo $this->getUrl('loomis/index/index') ?>';
+
+    observeOptions();
+
+    $H(loomis_ops).each(function(pair) {
+        if (pair.value === true) {
+            var rel = 's_method_' + loomis_ops.selectedrate;
+            $(rel + '_' + pair.key).checked = true;
+        }
+    });
+
+    $$('input[type="radio"][name="shipping_method"]').each(function(el) {
+        Event.observe(el, 'change', function() {
+            hideAllOptionsPanels();
+            if (el.readAttribute('id').indexOf('loomismodule') != -1) {
+                showOptionsPanel(el.readAttribute('id'));
+            }
+        });
+    });
+//]]>
+</script>

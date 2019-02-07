@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <sales>
+            <children>
+                <cshipment translate="title" module="sales">
+                    <title>Loomis Shipment</title>
+                    <action>adminhtml/loomisshipment</action>
+                    <sort_order>36</sort_order>
+                </cshipment>
+                <cmanifest translate="title" module="sales">
+                    <title>Loomis Manifest</title>
+                    <action>adminhtml/loomismanifest</action>
+                    <sort_order>37</sort_order>
+                </cmanifest>
+            </children>
+        </sales>
+    </menu>
+</config>

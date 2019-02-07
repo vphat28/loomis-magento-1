@@ -1,0 +1,22 @@
+
+<div class="loomisopt" id="<?php echo $this->getTagId() ?>_loomisopt" <?php if (!$this->getIsVisible()): ?> style="display: none;" <?php endif; ?>>
+    <h1><?php echo Mage::helper('loomismodule')->__('Additional Options') ?></h1>
+
+    <input type="checkbox" value="false" class="residential" id="<?php echo $this->getTagId() ?>_residential" rel="<?php echo $this->getTagId() ?>" />
+    <label for="<?php echo $this->getTagId() ?>_residential">
+        <?php echo Mage::helper('loomismodule')->__('Delivery Address is Residential') ?>
+    </label>
+    <br/>
+
+    <input type="checkbox" value="false" class="nsr" id="<?php echo $this->getTagId() ?>_nsr" rel="<?php echo $this->getTagId() ?>" />
+    <label for="<?php echo $this->getTagId() ?>_nsr">
+        <?php echo Mage::helper('loomismodule')->__('No Signature Required') ?>
+    </label>
+    <br/>
+
+    <input type="checkbox" value="false" class="xc" id="<?php echo $this->getTagId() ?>_xc" rel="<?php echo $this->getTagId() ?>" />
+    <label for="<?php echo $this->getTagId() ?>_xc">
+        <?php echo Mage::helper('loomismodule')->__('Extra Care') ?>
+    </label>
+    <br/>
+</div>
