@@ -105,13 +105,11 @@ class Collinsharper_Loomis_Model_Carrier_Shippingmethod extends Mage_Shipping_Mo
             }
 
             Mage::helper('loomismodule')->log(__METHOD__ . __LINE__ . print_r($rate_object,1));
-            
-            $price = $rate_object->return->getRatesResult->shipment->freight_charge +
-                $rate_object->return->getRatesResult->shipment->fuel_surcharge;
 
             //$price += $rate_object->return->getRatesResult->shipment->collect_charge;
             $price += $rate_object->return->getRatesResult->shipment->tax_charge_1;
             $price += $rate_object->return->getRatesResult->shipment->tax_charge_2;
+
             if (isset($rate_object->return->getRatesResult->shipment->dg_charge)) {
                 $price += $rate_object->return->getRatesResult->shipment->dg_charge;
             }
@@ -126,6 +124,16 @@ class Collinsharper_Loomis_Model_Carrier_Shippingmethod extends Mage_Shipping_Mo
 
             if (isset($rate_object->return->getRatesResult->shipment->ra_charge)) {
                 $price += $rate_object->return->getRatesResult->shipment->ra_charge;
+            }
+
+            if (isset($rate_object->return->getRatesResult->shipment->shipment_info_num)) {
+                $shipmentInfoNum = $rate_object->return->getRatesResult->shipment->shipment_info_num;
+
+                foreach ($shipmentInfoNum as $shipmentInfo) {
+                    if ($shipmentInfo->name === 'TOTAL_CHARGE') {
+                        $price += (float)$shipmentInfo->value;
+                    }
+                }
             }
 
             $cost = $price;
